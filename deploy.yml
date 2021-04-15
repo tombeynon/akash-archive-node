@@ -3,7 +3,7 @@ version: "2.0"
 
 services:
   akash:
-    image: tombeynon/akash-archive-node:v0.0.3
+    image: tombeynon/akash-archive-node:v0.0.4
     env:
       - AKASH_MONIKER=my-node-name
     expose:

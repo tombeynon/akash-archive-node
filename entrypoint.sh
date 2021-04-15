@@ -20,9 +20,12 @@ then
   rm -rf ~/.akash/data;
   mkdir -p ~/.akash/data;
   cd ~/.akash/data
-  SNAP_NAME=$(curl -s http://135.181.60.250/akash/ | egrep -o ">akashnet-2.*tar" | tr -d ">");
-  echo "Downloading snapshot..."
-  wget -nv -O - http://135.181.60.250/akash/${SNAP_NAME} | tar xf -
+  if [[ -z "${SNAPSHOT_URL}" ]]; then
+    SNAPSHOT_URL=http://135.181.60.250/akash/$(curl -s http://135.181.60.250/akash/ | egrep -o ">akashnet-2.*tar" | tr -d ">");
+  fi
+
+  echo "Downloading snapshot from $SNAPSHOT_URL..."
+  wget -nv -O - $SNAPSHOT_URL | tar xf -
 fi
 
 exec "$@"
