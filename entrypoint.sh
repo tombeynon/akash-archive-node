@@ -15,4 +15,13 @@ curl -s "$AKASH_NET/genesis.json" > $AKASH_HOME/config/genesis.json
 
 akash validate-genesis
 
+if [ $BOOTSTRAP == "1" ]
+then
+  rm -rf ~/.akash/data;
+  mkdir -p ~/.akash/data;
+  cd ~/.akash/data
+  SNAP_NAME=$(curl -s http://135.181.60.250/akash/ | egrep -o ">akashnet-2.*tar" | tr -d ">");
+  wget -O - http://135.181.60.250/akash/${SNAP_NAME} | tar xf -
+fi
+
 exec "$@"

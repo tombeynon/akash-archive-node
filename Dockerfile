@@ -1,4 +1,5 @@
-FROM ghcr.io/ovrclk/akash:stable
+ARG VERSION=stable
+FROM ghcr.io/ovrclk/akash:$VERSION
 
 EXPOSE 8080
 EXPOSE 26656
@@ -8,9 +9,10 @@ EXPOSE 9090
 
 ENV AKASH_NETWORK=mainnet
 ENV AKASH_MONIKER=change-me
+ENV BOOTSTRAP=1
 
 # Install Akash
-RUN apt-get update && apt-get install -y curl
+RUN apt-get update && apt-get install -y curl wget tar
 
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
