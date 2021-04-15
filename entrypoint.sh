@@ -21,7 +21,8 @@ then
   mkdir -p ~/.akash/data;
   cd ~/.akash/data
   SNAP_NAME=$(curl -s http://135.181.60.250/akash/ | egrep -o ">akashnet-2.*tar" | tr -d ">");
-  wget -O - http://135.181.60.250/akash/${SNAP_NAME} | tar xf -
+  echo "Downloading snapshot..."
+  wget -nv -O - http://135.181.60.250/akash/${SNAP_NAME} | tar xf -
 fi
 
 exec "$@"
