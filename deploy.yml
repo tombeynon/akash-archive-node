@@ -6,6 +6,9 @@ services:
     image: tombeynon/akash-archive-node:v0.0.4
     env:
       - AKASH_MONIKER=my-node-name
+      #- AKASH_NETWORK=mainnet
+      #- BOOTSTRAP=1
+      #- SNAPSHOT_URL=http://135.181.60.250/akash/akashnet-2_2021-04-15.tar
     expose:
       - port: 8080
         as: 80
