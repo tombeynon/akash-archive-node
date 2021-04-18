@@ -9,6 +9,10 @@ export AKASH_SEEDS="${AKASH_SEEDS:-$(curl -s "$AKASH_NET/seed-nodes.txt" | paste
 export AKASH_P2P_SEEDS=$AKASH_SEEDS
 export AKASH_P2P_PERSISTENT_PEERS=$AKASH_SEEDS
 
+export AKASH_RPC_LADDR="${AKASH_RPC_LADDR:-tcp://0.0.0.0:26657}"
+export AKASH_FASTSYNC_VERSION="${AKASH_FASTSYNC_VERSION:v2}"
+export AKASH_MINIMUM_GAS_PRICES="${AKASH_MINIMUM_GAS_PRICES:0.025uakt}"
+
 akash init --chain-id "$AKASH_CHAIN_ID" "$AKASH_MONIKER"
 
 curl -s "$AKASH_NET/genesis.json" > $AKASH_HOME/config/genesis.json
