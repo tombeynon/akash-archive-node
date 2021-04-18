@@ -8,7 +8,7 @@ EXPOSE 1317
 EXPOSE 9090
 
 ENV AKASH_NETWORK=mainnet
-ENV AKASH_MONIKER=change-me
+ENV AKASH_MONIKER="SkyNet | Validators on Akash"
 ENV BOOTSTRAP=1
 
 # Install Akash

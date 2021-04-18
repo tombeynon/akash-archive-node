@@ -5,10 +5,10 @@ services:
   akash:
     image: tombeynon/akash-archive-node:v0.0.4
     env:
-      - AKASH_MONIKER=my-node-name
+      - AKASH_MONIKER="SkyNet | Validators on Akash"
       #- AKASH_NETWORK=mainnet
       #- BOOTSTRAP=1
-      #- SNAPSHOT_URL=http://135.181.60.250/akash/akashnet-2_2021-04-15.tar
+      #- SNAPSHOT_URL=http://135.181.60.250/akash/akashnet-2_2021-04-18.tar
     expose:
       - port: 8080
         as: 80
@@ -36,7 +36,7 @@ profiles:
         memory:
           size: 2Gi
         storage:
-          size: 32Gi
+          size: 64Gi
   placement:
     dcloud:
       attributes:
