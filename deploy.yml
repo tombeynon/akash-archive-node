@@ -3,12 +3,15 @@ version: "2.0"
 
 services:
   akash:
-    image: tombeynon/akash-archive-node:v0.0.4
+    image: tombeynon/akash-archive-node:v0.0.5
     env:
       - AKASH_MONIKER=my-node-name
       #- AKASH_NETWORK=mainnet
+      #- AKASH_SEEDS=http://127.0.0.1,http://8.8.8,8
       #- BOOTSTRAP=1
       #- SNAPSHOT_URL=http://135.181.60.250/akash/akashnet-2_2021-04-15.tar
+      #- AKASH_STATESYNC_ENABLED=true
+      #- AKASH_STATE_SYNC_SNAPSHOT_INTERVAL=500
     expose:
       - port: 8080
         as: 80
